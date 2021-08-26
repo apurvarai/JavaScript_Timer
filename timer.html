@@ -1,1 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+<title> COUNTDOWN TIMER</title>
+</style>
+</head>
+<body>
 
+<p>COUNTDOWN TIMER</p>
+
+<p id="demo"></p>
+
+
+
+<script>
+var countDown = new Date("Oct 13, 2021 14:58:00").getTime();
+
+
+var x = setInterval(function() {
+
+  
+  var now = new Date().getTime();
+    
+  var dist = countDown - now;
+  if (dist < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+  else{
+  var days = Math.floor(dist / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((dist % (1000 * 60)) / 1000);
+    
+
+  document.getElementById("demo").innerHTML = days + " days " + hours + " hrs "
+  + minutes + " min " + seconds + " sec ";}
+    
+  
+}, 1000);
+</script>
+
+</body>
+</html>
